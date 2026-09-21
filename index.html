@@ -1,440 +1,409 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accès & Questionnaire</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 500px;
-      margin: 30px auto;
-      padding: 20px;
-      background-color: #f4f4f9;
-      color: #333;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: relative;
-    }
-    .lang-picker {
-      margin-bottom: 15px;
-      text-align: right;
-    }
-    .lang-picker select {
-      width: auto;
-      padding: 4px 8px;
-      margin: 0;
-    }
-    h2, h3 {
-      margin-top: 0;
-    }
-    .hidden {
-      display: none;
-    }
-    input[type="text"], select {
-      width: 100%;
-      padding: 8px;
-      margin: 8px 0 16px 0;
-      box-sizing: border-box;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    button {
-      background-color: #007bff;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-right: 5px;
-      margin-top: 5px;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-    .btn-back {
-      background-color: transparent;
-      color: #007bff;
-      border: 1px solid #007bff;
-      padding: 5px 10px;
-      margin-bottom: 15px;
-      font-size: 14px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .btn-back:hover {
-      background-color: #007bff;
-      color: white;
-    }
-    .btn-secondary {
-      background-color: #6c757d;
-    }
-    .btn-secondary:hover {
-      background-color: #5a6268;
-    }
-    .result-item, .contract-card {
-      background: #f8f9fa;
-      padding: 12px;
-      border-left: 4px solid #007bff;
-      margin-bottom: 12px;
-      border-radius: 4px;
-    }
-    .error {
-      color: red;
-      margin-bottom: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAY 26-27</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        body {
+            background: radial-gradient(circle at top left, #2d0b1e 0%, #0f051d 100%);
+            color: #fff0f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(35, 12, 33, 0.65);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 105, 180, 0.25);
+            width: 100%;
+            max-width: 600px;
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 0 30px rgba(236, 72, 153, 0.25);
+            text-align: center;
+            position: relative;
+        }
+        .btn-back {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 105, 180, 0.3);
+            color: #fbcfe8;
+            font-size: 1.2rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-back:hover {
+            background: rgba(236, 72, 153, 0.4);
+            transform: scale(1.1);
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #f472b6, #fb7185, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            text-shadow: 0 0 20px rgba(244, 114, 182, 0.3);
+        }
+        h2 {
+            font-size: 1.4rem;
+            color: #fbcfe8;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #f472b6;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .btn {
+            background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 14px;
+            cursor: pointer;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+            width: 100%;
+            max-width: 320px;
+        }
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.6);
+        }
+        .btn-admin {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+            margin-top: 25px;
+        }
+        .hidden {
+            display: none !important;
+        }
+        .input-group {
+            margin: 20px 0 10px 0;
+        }
+        input[type="text"], input[type="password"] {
+            padding: 12px 16px;
+            width: 100%;
+            max-width: 300px;
+            border: 1px solid #f472b6;
+            background-color: rgba(15, 5, 29, 0.8);
+            color: #ffffff;
+            border-radius: 12px;
+            font-size: 1rem;
+            text-align: center;
+            outline: none;
+            box-shadow: inset 0 0 10px rgba(236, 72, 153, 0.2);
+        }
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #fb7185;
+            box-shadow: 0 0 15px rgba(251, 113, 133, 0.5);
+        }
+        .contract-card {
+            text-align: left;
+            background: rgba(15, 5, 29, 0.7);
+            border: 1px solid rgba(244, 114, 182, 0.3);
+            padding: 25px;
+            border-radius: 16px;
+            margin-top: 20px;
+            max-height: 380px;
+            overflow-y: auto;
+            color: #fce7f3;
+            font-size: 0.9rem;
+        }
+        .contract-card h2 {
+            font-size: 1.1rem;
+            color: #f472b6;
+            margin-top: 20px;
+            border-bottom: 1px solid rgba(244, 114, 182, 0.2);
+            padding-bottom: 5px;
+        }
+        .contract-card ul {
+            padding-left: 20px;
+        }
+        .contract-card li {
+            margin-bottom: 10px;
+        }
+        .error-msg {
+            color: #ff4d6d;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+        .preview-img {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 12px;
+            margin-top: 15px;
+            border: 2px solid #ec4899;
+        }
+        .admin-card {
+            background: rgba(15, 5, 29, 0.8);
+            border: 1px solid #f472b6;
+            padding: 15px;
+            border-radius: 14px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="card">
-    <!-- Sélecteur de langue -->
-    <div class="lang-picker">
-      <label for="select-lang" id="lbl-lang">Langue / Language : </label>
-      <select id="select-lang" onchange="changerLangue()">
-        <option value="fr">Français</option>
-        <option value="en">English</option>
-      </select>
+<div class="container">
+    <!-- Écran d'accueil -->
+    <div id="screen-welcome">
+        <h1>JAY 26-27</h1>
+        <button class="btn" id="btn-navigate" onclick="showScreen('screen-lang')">Naviguer</button>
     </div>
 
-    <!-- ÉTAPE 1: Code d'accès -->
-    <div id="sec-login">
-      <h2 id="title-login">Connexion</h2>
-      <label for="input-code" id="label-code">Entrez votre code d'accès :</label>
-      <input type="text" id="input-code" placeholder="ex : acces2727">
-      <div id="login-error" class="error hidden">Code invalide. Essayez à nouveau.</div>
-      <button onclick="validerCode()" id="btn-login">Valider</button>
+    <!-- Écran Choix de la Langue -->
+    <div id="screen-lang" class="hidden">
+        <button class="btn-back" onclick="showScreen('screen-welcome')">←</button>
+        <h2>Language / Langue</h2>
+        <button class="btn" onclick="setLanguage('fr')">Français</button>
+        <br>
+        <button class="btn" style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);" onclick="setLanguage('en')">English</button>
     </div>
 
-    <!-- ÉTAPE 2: Questionnaire Utilisateur -->
-    <div id="sec-questionnaire" class="hidden">
-      <button class="btn-back" onclick="deconnexion()" id="btn-quit1">← Quitter</button>
-      <h2 id="user-greeting"></h2>
-      
-      <label for="input-nom" id="label-nom">Nom :</label>
-      <input type="text" id="input-nom" placeholder="Votre nom">
-
-      <label for="input-prenom" id="label-prenom">Prénom :</label>
-      <input type="text" id="input-prenom" placeholder="Votre prénom">
-
-      <label for="select-age" id="label-age">Âge :</label>
-      <select id="select-age"></select>
-
-      <label for="select-plus-site" id="label-plus-site">Voulez-vous plus de sites ?</label>
-      <select id="select-plus-site">
-        <option value="Oui" id="opt-yes">Oui</option>
-        <option value="Non" id="opt-no">Non</option>
-      </select>
-
-      <button onclick="soumettreQuestionnaire()" id="btn-confirm">Confirmer</button>
+    <!-- Navigation principale -->
+    <div id="screen-nav" class="hidden">
+        <button class="btn-back" onclick="showScreen('screen-lang')">←</button>
+        <h2 id="txt-nav-title">Navigation</h2>
+        <button class="btn" id="txt-btn-contract" onclick="showScreen('screen-category')">Contrat</button>
+        <br>
+        <button class="btn" style="background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);" id="txt-btn-autre" onclick="showScreen('screen-autre-category')">Autre</button>
+        <br>
+        <button class="btn btn-admin" id="txt-btn-admin-access" onclick="showScreen('screen-admin-login')">Espace Admin</button>
     </div>
 
-    <!-- ÉTAPE 3: Confirmation Post-Questionnaire -->
-    <div id="sec-apres-questionnaire" class="hidden">
-      <button class="btn-back" onclick="deconnexion()" id="btn-quit2">← Quitter</button>
-      <h3 id="title-thanks">Merci pour vos réponses !</h3>
-      <p id="label-autre-chose">Voulez-vous faire autre chose ?</p>
-      <button onclick="autreChose('oui')" id="btn-yes">Oui</button>
-      <button onclick="autreChose('non')" id="btn-no">Non</button>
+    <!-- Catégorie Contrat (Sarah) -->
+    <div id="screen-category" class="hidden">
+        <button class="btn-back" onclick="showScreen('screen-nav')">←</button>
+        <h2 id="txt-cat-title">Catégories</h2>
+        <button class="btn" onclick="showScreen('screen-sarah-options')">Sarah</button>
     </div>
 
-    <!-- ÉTAPE 4: Panneau Admin Standard (ADMIN166) -->
-    <div id="sec-admin" class="hidden">
-      <button class="btn-back" onclick="deconnexion()" id="btn-quit3">← Quitter</button>
-      <h2 id="title-admin">Salut admin</h2>
-      <p id="label-admin-action">Que voulez-vous faire ?</p>
-      <button onclick="afficherSectionAdmin('resultats')" id="btn-admin-results">Résultats</button>
-      <button onclick="afficherSectionAdmin('a-venir')" id="btn-admin-upcoming">À venir</button>
-
-      <div id="admin-contenu" style="margin-top: 20px;"></div>
+    <!-- Catégorie Autre (Emma) -->
+    <div id="screen-autre-category" class="hidden">
+        <button class="btn-back" onclick="showScreen('screen-nav')">←</button>
+        <h2 id="txt-autre-title">Autre - Catégories</h2>
+        <button class="btn" style="background: linear-gradient(135deg, #c084fc 0%, #9333ea 100%);" onclick="showScreen('screen-emma-options')">Emma</button>
     </div>
 
-    <!-- ÉTAPE 5: Panneau Admin Demo / Contrats (ADMINDEMO) -->
-    <div id="sec-admindemo" class="hidden">
-      <button class="btn-back" onclick="deconnexion()" id="btn-quit4">← Quitter</button>
-      <h2 id="title-admindemo">Espace Admin Demo</h2>
-      <h3 id="title-contracts">Contrats des utilisatrices :</h3>
+    <!-- Options Sarah -->
+    <div id="screen-sarah-options" class="hidden">
+        <button class="btn-back" onclick="showScreen('screen-category')">←</button>
+        <h2>Sarah - <span class="txt-sub-contract">Contrats</span></h2>
+        <button class="btn" id="txt-sarah-btn" onclick="showPasswordSection('password-section')">Contrat Squishy</button>
 
-      <div class="contract-card">
-        <h4>Contrat de Sarah</h4>
-        <p id="contract-sarah-text">
-          - Respecter les consignes de l'application.<br>
-          - <strong>Obligation :</strong> Sarah doit avoir son squishy dans son sac tous les jours d'école ou courrier.
-        </p>
-      </div>
-
-      <div class="contract-card">
-        <h4>Contrat d'Emma</h4>
-        <p id="contract-emma-text">
-          - Respecter les consignes de l'application.<br>
-          - Compléter les questionnaires demandés en temps voulu.
-        </p>
-      </div>
+        <div id="password-section" class="hidden" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(244, 114, 182, 0.2);">
+            <p style="color: #fbcfe8; margin-bottom: 5px;" class="txt-enter-pass">Entrez le mot de passe :</p>
+            <div class="input-group">
+                <input type="text" id="password-input" placeholder="••••••••" autocomplete="off" spellcheck="false">
+            </div>
+            <button class="btn" style="background: linear-gradient(135deg, #d946ef 0%, #a855f7 100%);" class="txt-unlock" onclick="verifyPassword()">Déverrouiller</button>
+            <p id="error-message" class="error-msg hidden">Mot de passe incorrect.</p>
+        </div>
     </div>
-  </div>
 
-  <script>
-    const ADMIN_CODE = "ADMIN166";
-    const ADMINDEMO_CODE = "ADMINDEMO";
+    <!-- Options Emma -->
+    <div id="screen-emma-options" class="hidden">
+        <button class="btn-back" onclick="showScreen('screen-autre-category')">←</button>
+        <h2>Emma - Options</h2>
+        <button class="btn" style="background: linear-gradient(135deg, #f43f5e 0%, #be123c 100%);" id="txt-emma-btn" onclick="showPasswordSection('emma-password-section')">COMMANDE SQUISHY</button>
 
-    const USER_CODES = {
-      "SARAH6": "Sarah",
-      "CHRISTOPHE71": "Christophe",
-      "LUCAS61": "Lucas",
-      "EMMA81": "Emma",
-      "JAYCOBTEST65": "Jaycobtest"
-    };
+        <div id="emma-password-section" class="hidden" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(244, 114, 182, 0.2);">
+            <p style="color: #fbcfe8; margin-bottom: 5px;" class="txt-enter-pass">Entrez le mot de passe :</p>
+            <div class="input-group">
+                <input type="text" id="emma-password-input" placeholder="••••••••" autocomplete="off" spellcheck="false">
+            </div>
+            <button class="btn" style="background: linear-gradient(135deg, #d946ef 0%, #a855f7 100%);" class="txt-unlock" onclick="verifyEmmaPassword()">Déverrouiller</button>
+            <p id="emma-error-message" class="error-msg hidden">Mot de passe incorrect.</p>
+        </div>
+    </div>
 
-    const reponses = {
-      "SARAH6": null,
-      "CHRISTOPHE71": null,
-      "LUCAS61": null,
-      "EMMA81": null,
-      "JAYCOBTEST65": null
-    };
+    <!-- Contrat Sarah affiché -->
+    <div id="screen-contract" class="hidden">
+        <button class="btn-back" onclick="showScreen('screen-sarah-options')">←</button>
+        <h2 id="txt-contract-heading">Contrat squishy fromage</h2>
+        
+        <div class="contract-card" id="txt-contract-body">
+            <!-- Rempli en JS selon la langue -->
+        </div>
 
-    let currentUserCode = "";
-    let currentLang = "fr";
+        <button class="btn" style="background: linear-gradient(135deg, #db2777 0%, #9333ea 100%); margin-top: 20px;" id="txt-sign-btn" onclick="signContract()">Signer</button>
+    </div>
+
+    <!-- Écran Emma : COMMANDE SQUISHY -->
+    <div id="screen-emma-commande" class="hidden">
+        <button class="btn-back" onclick="showScreen('screen-emma-options')">←</button>
+        <h2 style="color: #fb7185;">COMMANDE SQUISHY</h2>
+        
+        <div style="background: rgba(15, 5, 29, 0.8); border: 2px solid #f472b6; padding: 25px; border-radius: 18px; margin-top: 20px;">
+            <h3 style="color: #fbcfe8; font-size: 1.1rem; margin-top: 0;" id="txt-emma-msg">CONFIRME QUE TU AS REÇU LA COMMANDE</h3>
+            <p style="color: #cbd5e1; font-size: 0.88rem;" id="txt-emma-sub">Prends une photo de la commande avec la caméra :</p>
+            
+            <input type="file" id="emma-camera-input" accept="image/*" capture="user" style="display: none;" onchange="handleEmmaPhoto(this)">
+            <button class="btn" style="background: #3b82f6;" id="txt-take-photo-btn" onclick="document.getElementById('emma-camera-input').click()">📸 Prendre la photo avec la caméra</button>
+
+            <div id="emma-preview-container" class="hidden">
+                <img id="emma-preview" class="preview-img" src="" alt="Aperçu photo">
+            </div>
+
+            <button class="btn" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); margin-top: 25px;" id="txt-confirm-btn" onclick="confirmEmmaCommande()">CONFIRMER ET ENVOYER</button>
+            <p id="emma-photo-error" class="error-msg hidden">Veuillez prendre une photo avec la caméra avant de confirmer.</p>
+        </div>
+    </div>
+
+    <!-- Connexion Admin -->
+    <div id="screen-admin-login" class="hidden">
+        <button class="btn-back" onclick="showScreen('screen-nav')">←</button>
+        <h2>Connexion Admin</h2>
+        <p style="color: #fbcfe8;">Entrez le code administrateur :</p>
+        <div class="input-group">
+            <input type="password" id="admin-code-input" placeholder="• • • • • •">
+        </div>
+        <button class="btn btn-admin" onclick="verifyAdminCode()">Accéder</button>
+        <p id="admin-code-error" class="error-msg hidden">Code administrateur incorrect.</p>
+    </div>
+
+    <!-- Section Admin -->
+    <div id="screen-admin-dashboard" class="hidden">
+        <button class="btn-back" onclick="showScreen('screen-nav')">←</button>
+        <h2>Espace Admin</h2>
+        
+        <div class="admin-card">
+            <h3 style="color: #f472b6; margin-top: 0;">1. Sarah - Contrat Squishy</h3>
+            <p><strong>Code d'accès :</strong> <code>SARAHCONTRATSQUISHY26</code></p>
+            <p><strong>Condition spéciale :</strong> Doit impérativement avoir le squishy dans son sac tous les jours d'école.</p>
+            <button class="btn" style="padding: 10px; font-size: 0.9rem;" onclick="showScreen('screen-contract')">Voir le contrat</button>
+        </div>
+
+        <div class="admin-card">
+            <h3 style="color: #c084fc; margin-top: 0;">2. Emma - Commande Squishy</h3>
+            <p><strong>Code d'accès :</strong> <code>commandesquishyemma72728</code></p>
+            <p><strong>Règle :</strong> Prise de photo obligatoire avec la caméra lors de la confirmation.</p>
+            <button class="btn" style="padding: 10px; font-size: 0.9rem; background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);" onclick="showScreen('screen-emma-commande')">Voir le module</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentLang = 'fr';
+    let emmaPhotoTaken = false;
 
     const translations = {
-      fr: {
-        titleLogin: "Connexion",
-        labelCode: "Entrez votre code d'accès :",
-        loginError: "Code invalide. Essayez à nouveau.",
-        btnLogin: "Valider",
-        btnQuit: "← Quitter",
-        labelNom: "Nom :",
-        labelPrenom: "Prénom :",
-        labelAge: "Âge :",
-        labelPlusSite: "Voulez-vous plus de sites ?",
-        optYes: "Oui",
-        optNo: "Non",
-        btnConfirm: "Confirmer",
-        titleThanks: "Merci pour vos réponses !",
-        labelAutreChose: "Voulez-vous faire autre chose ?",
-        btnYes: "Oui",
-        btnNo: "Non",
-        titleAdmin: "Salut admin",
-        labelAdminAction: "Que voulez-vous faire ?",
-        btnAdminResults: "Résultats",
-        btnAdminUpcoming: "À venir",
-        titleAdminDemo: "Espace Admin Demo",
-        titleContracts: "Contrats des utilisatrices :",
-        sarahContract: "- Respecter les consignes de l'application.<br>- <strong>Obligation :</strong> Sarah doit avoir son squishy dans son sac tous les jours d'école ou courrier.",
-        emmaContract: "- Respecter les consignes de l'application.<br>- Compléter les questionnaires demandés en temps voulu.",
-        greetingPrefix: "Bonjour ",
-        alertFill: "Veuillez remplir votre nom et votre prénom.",
-        alertClose: "Merci, vous pouvez fermer la page.",
-        resultsHeader: "Résultats des utilisateurs",
-        notAnswered: "N'a pas répondu.",
-        yearsOld: "ans"
-      },
-      en: {
-        titleLogin: "Login",
-        labelCode: "Enter your access code:",
-        loginError: "Invalid code. Please try again.",
-        btnLogin: "Submit",
-        btnQuit: "← Quit",
-        labelNom: "Last Name:",
-        labelPrenom: "First Name:",
-        labelAge: "Age:",
-        labelPlusSite: "Do you want more websites?",
-        optYes: "Yes",
-        optNo: "No",
-        btnConfirm: "Confirm",
-        titleThanks: "Thank you for your responses!",
-        labelAutreChose: "Do you want to do something else?",
-        btnYes: "Yes",
-        btnNo: "No",
-        titleAdmin: "Hello Admin",
-        labelAdminAction: "What would you like to do?",
-        btnAdminResults: "Results",
-        btnAdminUpcoming: "Coming soon",
-        titleAdminDemo: "Admin Demo Space",
-        titleContracts: "User Contracts:",
-        sarahContract: "- Follow the application guidelines.<br>- <strong>Requirement:</strong> Sarah must have her squishy in her bag every school day or mail.",
-        emmaContract: "- Follow the application guidelines.<br>- Complete requested surveys on time.",
-        greetingPrefix: "Hello ",
-        alertFill: "Please fill in your last name and first name.",
-        alertClose: "Thank you, you can close the page.",
-        resultsHeader: "User Results",
-        notAnswered: "Has not answered.",
-        yearsOld: "years old"
-      }
+        fr: {
+            navBtn: "Naviguer",
+            navTitle: "Navigation",
+            contractBtn: "Contrat",
+            autreBtn: "Autre",
+            adminBtn: "Espace Admin",
+            catTitle: "Catégories",
+            autreTitle: "Autre - Catégories",
+            sarahBtn: "Contrat Squishy",
+            emmaBtn: "COMMANDE SQUISHY",
+            enterPass: "Entrez le mot de passe :",
+            unlock: "Déverrouiller",
+            contractHeading: "Contrat squishy fromage",
+            contractBody: `
+                <h2>1. Engagement d'amitié et conditions du squishy</h2>
+                <p>Le présent contrat confirme le prêt ou la remise d'un squishy entre Jaycob et son ami(e).</p>
+
+                <h2>2. Termes et obligations quotidiennes</h2>
+                <ul>
+                    <li><strong>Règle d'école obligatoire :</strong> Sarah doit obligatoirement avoir le squishy dans son sac <strong>TOUS les jours d'école</strong>.</li>
+                    <li><strong>Rupture d'amitié par l'ami(e) :</strong> Si l'ami(e) affirme, dit ou déclare à d'autres personnes qu'ils ne sont plus amis avec Jaycob, l'ami(e) s'engage immédiatement à :
+                        <ul>
+                            <li>Rendre le squishy en parfait état à Jaycob ; <strong>OU</strong></li>
+                            <li>Payer la valeur du squishy en argent comptant à Jaycob.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Rupture d'amitié par Jaycob :</strong> Si Jaycob déclare qu'ils ne sont plus amis, il doit obligatoirement donner une raison valable. Cela déclenchera alors la procédure de paiement ou de restitution du squishy.</li>
+                    <li><strong>Insultes ou manques de respect :</strong> Si l'ami(e) insulte Jaycob, elle sera obligée de payer la valeur du squishy <strong>ET</strong> de redonner le squishy à Jaycob.</li>
+                    <li><strong>Dommage ou bris :</strong> Si le squishy se casse, s'abîme ou se déchire, l'ami(e) doit obligatoirement informer Jaycob. Si Jaycob découvre par lui-même que le squishy est cassé, l'ami(e) aura l'obligation absolue de le payer et devra le garder.</li>
+                    <li><strong>Échange, don ou transfert (Trade) :</strong> Si l'ami(e) souhaite donner, échanger ou transférer le squishy à quelqu'un d'autre, Jaycob doit obligatoirement en être informé avant. Jaycob décidera alors de la suite de la procédure.</li>
+                </ul>
+
+                <h2>3. Acceptation des termes</h2>
+                <p>En signant ci-dessous, les deux parties acceptent et s'engagent à respecter l'ensemble des conditions énoncées dans ce contrat.</p>
+
+                <h2>Clause d'engagement définitif (Irrevocable)</h2>
+                <p>Dès que Jaycob et l'ami(e) ont signé ce document, <strong>LE CONTRAT NE PEUT PLUS REVENIR EN ARRIÈRE</strong>. Il est strictement interdit de supprimer, jeter, détruire ou annuler ce contrat même si l'ami(e) regrette d'avoir signé. L'engagement est permanent et officiel dès la signature des deux parties.</p>
+            `,
+            signBtn: "Signer",
+            emmaMsg: "CONFIRME QUE TU AS REÇU LA COMMANDE",
+            emmaSub: "Prends une photo de la commande avec la caméra :",
+            takePhoto: "📸 Prendre la photo avec la caméra",
+            confirmBtn: "CONFIRMER ET ENVOYER"
+        },
+        en: {
+            navBtn: "Navigate",
+            navTitle: "Navigation",
+            contractBtn: "Contract",
+            autreBtn: "Other",
+            adminBtn: "Admin Space",
+            catTitle: "Categories",
+            autreTitle: "Other - Categories",
+            sarahBtn: "Squishy Contract",
+            emmaBtn: "SQUISHY ORDER",
+            enterPass: "Enter password:",
+            unlock: "Unlock",
+            contractHeading: "Cheese Squishy Contract",
+            contractBody: `
+                <h2>1. Friendship Agreement and Squishy Conditions</h2>
+                <p>This contract confirms the loan or handover of a squishy between Jaycob and his friend.</p>
+
+                <h2>2. Terms and Daily Obligations</h2>
+                <ul>
+                    <li><strong>Mandatory School Rule:</strong> Sarah must imperatively have the squishy in her bag <strong>EVERY school day</strong>.</li>
+                    <li><strong>Breakup of friendship by the friend:</strong> If the friend states or tells others they are no longer friends with Jaycob, the friend immediately agrees to:
+                        <ul>
+                            <li>Return the squishy in perfect condition to Jaycob; <strong>OR</strong></li>
+                            <li>Pay the full value of the squishy in cash to Jaycob.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Breakup of friendship by Jaycob:</strong> If Jaycob declares they are no longer friends, he must provide a valid reason. This will trigger the payment or return procedure.</li>
+                    <li><strong>Insults or Disrespect:</strong> If the friend insults Jaycob, she must pay the value of the squishy <strong>AND</strong> return the squishy to Jaycob.</li>
+                    <li><strong>Damage or Breakage:</strong> If the squishy breaks or tears, the friend must inform Jaycob. If Jaycob discovers it himself, the friend is obligated to pay for it and keep it.</li>
+                    <li><strong>Trade / Transfer:</strong> If the friend wants to give or trade the squishy, Jaycob must be informed beforehand. Jaycob will decide the next steps.</li>
+                </ul>
+
+                <h2>3. Acceptance of Terms</h2>
+                <p>By signing below, both parties accept and agree to all terms stated in this contract.</p>
+
+                <h2>Irrevocable Commitment Clause</h2>
+                <p>Once signed, <strong>THIS CONTRACT CANNOT BE REVERSED</strong>. It is strictly forbidden to delete, throw away, or cancel this contract even if the friend regrets signing. The commitment is permanent and official upon signature.</p>
+            `,
+            signBtn: "Sign",
+            emmaMsg: "CONFIRM THAT YOU RECEIVED THE ORDER",
+            emmaSub: "Take a picture of the order with the camera:",
+            takePhoto: "📸 Take photo with camera",
+            confirmBtn: "CONFIRM AND SEND"
+        }
     };
 
-    function buildAgeSelect() {
-      const selectAge = document.getElementById("select-age");
-      selectAge.innerHTML = "";
-      const ageLabel = translations[currentLang].yearsOld;
-      for (let i = 0; i <= 15; i++) {
-        const option = document.createElement("option");
-        option.value = i;
-        option.textContent = i + " " + ageLabel;
-        selectAge.appendChild(option);
-      }
-    }
+    function setLanguage(lang) {
+        currentLang = lang;
+        const t = translations[lang];
 
-    function changerLangue() {
-      currentLang = document.getElementById("select-lang").value;
-      const t = translations[currentLang];
-
-      document.getElementById("title-login").textContent = t.titleLogin;
-      document.getElementById("label-code").textContent = t.labelCode;
-      document.getElementById("login-error").textContent = t.loginError;
-      document.getElementById("btn-login").textContent = t.btnLogin;
-
-      document.getElementById("btn-quit1").textContent = t.btnQuit;
-      document.getElementById("btn-quit2").textContent = t.btnQuit;
-      document.getElementById("btn-quit3").textContent = t.btnQuit;
-      document.getElementById("btn-quit4").textContent = t.btnQuit;
-
-      document.getElementById("label-nom").textContent = t.labelNom;
-      document.getElementById("label-prenom").textContent = t.labelPrenom;
-      document.getElementById("label-age").textContent = t.labelAge;
-      document.getElementById("label-plus-site").textContent = t.labelPlusSite;
-      document.getElementById("opt-yes").textContent = t.optYes;
-      document.getElementById("opt-no").textContent = t.optNo;
-      document.getElementById("btn-confirm").textContent = t.btnConfirm;
-
-      document.getElementById("title-thanks").textContent = t.titleThanks;
-      document.getElementById("label-autre-chose").textContent = t.labelAutreChose;
-      document.getElementById("btn-yes").textContent = t.btnYes;
-      document.getElementById("btn-no").textContent = t.btnNo;
-
-      document.getElementById("title-admin").textContent = t.titleAdmin;
-      document.getElementById("label-admin-action").textContent = t.labelAdminAction;
-      document.getElementById("btn-admin-results").textContent = t.btnAdminResults;
-      document.getElementById("btn-admin-upcoming").textContent = t.btnAdminUpcoming;
-
-      document.getElementById("title-admindemo").textContent = t.titleAdminDemo;
-      document.getElementById("title-contracts").textContent = t.titleContracts;
-      document.getElementById("contract-sarah-text").innerHTML = t.sarahContract;
-      document.getElementById("contract-emma-text").innerHTML = t.emmaContract;
-
-      buildAgeSelect();
-
-      if (currentUserCode && USER_CODES[currentUserCode]) {
-        const prenom = USER_CODES[currentUserCode];
-        document.getElementById("user-greeting").textContent = t.greetingPrefix + prenom.toLowerCase();
-      }
-    }
-
-    function validerCode() {
-      const codeInput = document.getElementById("input-code").value.trim().toUpperCase();
-      const errorDiv = document.getElementById("login-error");
-      errorDiv.classList.add("hidden");
-
-      if (codeInput === ADMIN_CODE) {
-        cacherToutesLesSections();
-        document.getElementById("sec-admin").classList.remove("hidden");
-        document.getElementById("admin-contenu").innerHTML = "";
-      } else if (codeInput === ADMINDEMO_CODE) {
-        cacherToutesLesSections();
-        document.getElementById("sec-admindemo").classList.remove("hidden");
-      } else if (USER_CODES[codeInput]) {
-        currentUserCode = codeInput;
-        
-        cacherToutesLesSections();
-        
-        if (reponses[currentUserCode] !== null) {
-          document.getElementById("sec-apres-questionnaire").classList.remove("hidden");
-        } else {
-          const prenom = USER_CODES[codeInput];
-          const t = translations[currentLang];
-          document.getElementById("user-greeting").textContent = t.greetingPrefix + prenom.toLowerCase();
-          document.getElementById("sec-questionnaire").classList.remove("hidden");
-        }
-      } else {
-        errorDiv.classList.remove("hidden");
-      }
-    }
-
-    function soumettreQuestionnaire() {
-      const nom = document.getElementById("input-nom").value.trim();
-      const prenom = document.getElementById("input-prenom").value.trim();
-      const age = document.getElementById("select-age").value;
-      const plusDeSite = document.getElementById("select-plus-site").value;
-
-      if (!nom || !prenom) {
-        alert(translations[currentLang].alertFill);
-        return;
-      }
-
-      reponses[currentUserCode] = {
-        nom: nom,
-        prenom: prenom,
-        age: age,
-        plusDeSite: plusDeSite
-      };
-
-      cacherToutesLesSections();
-      document.getElementById("sec-apres-questionnaire").classList.remove("hidden");
-    }
-
-    function autreChose(choix) {
-      if (choix === 'oui') {
-        deconnexion();
-      } else {
-        alert(translations[currentLang].alertClose);
-      }
-    }
-
-    function afficherSectionAdmin(section) {
-      const zoneContenu = document.getElementById("admin-contenu");
-      const t = translations[currentLang];
-      
-      if (section === 'a-venir') {
-        zoneContenu.innerHTML = "";
-      } else if (section === 'resultats') {
-        let html = `<h3>${t.resultsHeader}</h3>`;
-        
-        for (const [code, prenom] of Object.entries(USER_CODES)) {
-          const reponse = reponses[code];
-          html += `<div class="result-item"><strong>${prenom} (${code}) :</strong><br>`;
-          if (reponse) {
-            html += `
-              ${t.labelNom} ${reponse.nom}<br>
-              ${t.labelPrenom} ${reponse.prenom}<br>
-              ${t.labelAge} ${reponse.age} ${t.yearsOld}<br>
-              ${t.labelPlusSite} ${reponse.plusDeSite}
-            `;
-          } else {
-            html += `<span style="color: red;">${t.notAnswered}</span>`;
-          }
-          html += `</div>`;
-        }
-        
-        zoneContenu.innerHTML = html;
-      }
-    }
-
-    function deconnexion() {
-      currentUserCode = "";
-      document.getElementById("input-code").value = "";
-      document.getElementById("input-nom").value = "";
-      document.getElementById("input-prenom").value = "";
-      document.getElementById("select-age").value = "0";
-      
-      cacherToutesLesSections();
-      document.getElementById("sec-login").classList.remove("hidden");
-    }
-
-    function cacherToutesLesSections() {
-      document.getElementById("sec-login").classList.add("hidden");
-      document.getElementById("sec-questionnaire").classList.add("hidden");
-      document.getElementById("sec-apres-questionnaire").classList.add("hidden");
-      document.getElementById("sec-admin").classList.add("hidden");
-      document.getElementById("sec-admindemo").classList.add("hidden");
-    }
-
-    buildAgeSelect();
-  </script>
-
-</body>
-                                                                                        </html>
-          
+        document.getElementById('btn-navigate').textContent = t.navBtn;
+        document.getEle

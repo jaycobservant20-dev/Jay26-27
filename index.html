@@ -169,39 +169,39 @@
 
 <div class="container">
     <!-- Écran d'accueil -->
-    <div id="screen-welcome">
+    <div id="screen-welcome" class="page-screen">
         <h1>JAY 26-27</h1>
-        <button class="btn" onclick="showScreen('screen-nav')">Naviguer</button>
+        <button class="btn" onclick="goTo('screen-nav')">Naviguer</button>
     </div>
 
     <!-- Navigation -->
-    <div id="screen-nav" class="hidden">
-        <button class="btn-back" onclick="showScreen('screen-welcome')">←</button>
+    <div id="screen-nav" class="page-screen hidden">
+        <button class="btn-back" onclick="goTo('screen-welcome')">←</button>
         <h2>Navigation</h2>
-        <button class="btn" onclick="showScreen('screen-category')">Contrat</button>
+        <button class="btn" onclick="goTo('screen-category')">Contrat</button>
         <br>
-        <button class="btn" style="background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);" onclick="showScreen('screen-autre-category')">Autre</button>
+        <button class="btn" style="background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);" onclick="goTo('screen-autre-category')">Autre</button>
         <br>
-        <button class="btn btn-admin" onclick="showScreen('screen-admin-login')">Espace Admin</button>
+        <button class="btn btn-admin" onclick="goTo('screen-admin-login')">Espace Admin</button>
     </div>
 
     <!-- Catégorie Contrat (Sarah) -->
-    <div id="screen-category" class="hidden">
-        <button class="btn-back" onclick="showScreen('screen-nav')">←</button>
+    <div id="screen-category" class="page-screen hidden">
+        <button class="btn-back" onclick="goTo('screen-nav')">←</button>
         <h2>Catégories</h2>
-        <button class="btn" onclick="showScreen('screen-sarah-options')">Sarah</button>
+        <button class="btn" onclick="goTo('screen-sarah-options')">Sarah</button>
     </div>
 
     <!-- Catégorie Autre (Emma) -->
-    <div id="screen-autre-category" class="hidden">
-        <button class="btn-back" onclick="showScreen('screen-nav')">←</button>
+    <div id="screen-autre-category" class="page-screen hidden">
+        <button class="btn-back" onclick="goTo('screen-nav')">←</button>
         <h2>Autre - Catégories</h2>
-        <button class="btn" style="background: linear-gradient(135deg, #c084fc 0%, #9333ea 100%);" onclick="showScreen('screen-emma-options')">Emma</button>
+        <button class="btn" style="background: linear-gradient(135deg, #c084fc 0%, #9333ea 100%);" onclick="goTo('screen-emma-options')">Emma</button>
     </div>
 
     <!-- Options Sarah -->
-    <div id="screen-sarah-options" class="hidden">
-        <button class="btn-back" onclick="showScreen('screen-category')">←</button>
+    <div id="screen-sarah-options" class="page-screen hidden">
+        <button class="btn-back" onclick="goTo('screen-category')">←</button>
         <h2>Sarah - Contrats</h2>
         <button class="btn" onclick="showPasswordSection('password-section')">Contrat Squishy</button>
 
@@ -216,8 +216,8 @@
     </div>
 
     <!-- Options Emma -->
-    <div id="screen-emma-options" class="hidden">
-        <button class="btn-back" onclick="showScreen('screen-autre-category')">←</button>
+    <div id="screen-emma-options" class="page-screen hidden">
+        <button class="btn-back" onclick="goTo('screen-autre-category')">←</button>
         <h2>Emma - Options</h2>
         <button class="btn" style="background: linear-gradient(135deg, #f43f5e 0%, #be123c 100%);" onclick="showPasswordSection('emma-password-section')">COMMANDE SQUISHY</button>
 
@@ -232,8 +232,8 @@
     </div>
 
     <!-- Contrat Sarah -->
-    <div id="screen-contract" class="hidden">
-        <button class="btn-back" onclick="showScreen('screen-sarah-options')">←</button>
+    <div id="screen-contract" class="page-screen hidden">
+        <button class="btn-back" onclick="goTo('screen-sarah-options')">←</button>
         <h2>Contrat squishy fromage</h2>
         
         <div class="contract-card">
@@ -266,8 +266,8 @@
     </div>
 
     <!-- Écran Emma : COMMANDE SQUISHY -->
-    <div id="screen-emma-commande" class="hidden">
-        <button class="btn-back" onclick="showScreen('screen-emma-options')">←</button>
+    <div id="screen-emma-commande" class="page-screen hidden">
+        <button class="btn-back" onclick="goTo('screen-emma-options')">←</button>
         <h2 style="color: #fb7185;">COMMANDE SQUISHY</h2>
         
         <div style="background: rgba(15, 5, 29, 0.8); border: 2px solid #f472b6; padding: 25px; border-radius: 18px; margin-top: 20px;">
@@ -287,8 +287,8 @@
     </div>
 
     <!-- Connexion Admin -->
-    <div id="screen-admin-login" class="hidden">
-        <button class="btn-back" onclick="showScreen('screen-nav')">←</button>
+    <div id="screen-admin-login" class="page-screen hidden">
+        <button class="btn-back" onclick="goTo('screen-nav')">←</button>
         <h2>Connexion Admin</h2>
         <p style="color: #fbcfe8;">Entrez le code administrateur :</p>
         <div class="input-group">
@@ -299,22 +299,22 @@
     </div>
 
     <!-- Section Admin -->
-    <div id="screen-admin-dashboard" class="hidden">
-        <button class="btn-back" onclick="showScreen('screen-nav')">←</button>
+    <div id="screen-admin-dashboard" class="page-screen hidden">
+        <button class="btn-back" onclick="goTo('screen-nav')">←</button>
         <h2>Espace Admin</h2>
         
         <div class="admin-card">
             <h3 style="color: #f472b6; margin-top: 0;">1. Sarah - Contrat Squishy</h3>
             <p><strong>Code d'accès :</strong> <code>SARAHCONTRATSQUISHY26</code></p>
             <p><strong>Obligation :</strong> Squishy obligatoire dans le sac tous les jours d'école.</p>
-            <button class="btn" style="padding: 10px; font-size: 0.9rem;" onclick="showScreen('screen-contract')">Voir le contrat</button>
+            <button class="btn" style="padding: 10px; font-size: 0.9rem;" onclick="goTo('screen-contract')">Voir le contrat</button>
         </div>
 
         <div class="admin-card">
             <h3 style="color: #c084fc; margin-top: 0;">2. Emma - Commande Squishy</h3>
             <p><strong>Code d'accès :</strong> <code>commandesquishyemma72728</code></p>
             <p><strong>Obligation :</strong> Photo avec caméra uniquement.</p>
-            <button class="btn" style="padding: 10px; font-size: 0.9rem; background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);" onclick="showScreen('screen-emma-commande')">Voir le module</button>
+            <button class="btn" style="padding: 10px; font-size: 0.9rem; background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);" onclick="goTo('screen-emma-commande')">Voir le module</button>
         </div>
     </div>
 </div>
@@ -322,20 +322,11 @@
 <script>
     let emmaPhotoTaken = false;
 
-    function showScreen(screenId) {
-        const screens = [
-            'screen-welcome', 'screen-nav', 'screen-category', 'screen-autre-category',
-            'screen-sarah-options', 'screen-emma-options', 'screen-contract', 'screen-emma-commande',
-            'screen-admin-login', 'screen-admin-dashboard'
-        ];
-        
-        for (let i = 0; i < screens.length; i++) {
-            const el = document.getElementById(screens[i]);
-            if (el) {
-                el.classList.add('hidden');
-            }
-        }
-        
+    function goTo(screenId) {
+        const allScreens = document.querySelectorAll('.page-screen');
+        allScreens.forEach(screen => {
+            screen.classList.add('hidden');
+        });
         const target = document.getElementById(screenId);
         if (target) {
             target.classList.remove('hidden');
@@ -350,7 +341,7 @@
         const input = document.getElementById('password-input').value.replace(/\s+/g, '').toUpperCase();
         if (input === 'SARAHCONTRATSQUISHY26') {
             document.getElementById('error-message').classList.add('hidden');
-            showScreen('screen-contract');
+            goTo('screen-contract');
         } else {
             document.getElementById('error-message').classList.remove('hidden');
         }
@@ -360,7 +351,7 @@
         const input = document.getElementById('emma-password-input').value.replace(/\s+/g, '').toLowerCase();
         if (input === 'commandesquishyemma72728') {
             document.getElementById('emma-error-message').classList.add('hidden');
-            showScreen('screen-emma-commande');
+            goTo('screen-emma-commande');
         } else {
             document.getElementById('emma-error-message').classList.remove('hidden');
         }
@@ -370,7 +361,7 @@
         const input = document.getElementById('admin-code-input').value.trim();
         if (input === 'admindemo') {
             document.getElementById('admin-code-error').classList.add('hidden');
-            showScreen('screen-admin-dashboard');
+            goTo('screen-admin-dashboard');
         } else {
             document.getElementById('admin-code-error').classList.remove('hidden');
         }
@@ -433,4 +424,7 @@ Le présent contrat confirme le prêt ou la remise d'un squishy entre Jaycob et 
 - Échange, don ou transfert (Trade) : Si l'ami(e) souhaite donner, échanger ou transférer le squishy à quelqu'un d'autre, Jaycob doit obligatoirement en être informé avant. Jaycob décidera alors de la suite de la procédure (ce qu'il faut faire ou ne rien faire).
 
 3. Acceptation des termes
-En signant ci-dessous, les deux parties acceptent et s'engagent à respecter l'ensemble des conditions énoncées dans ce
+En signant ci-dessous, les deux parties acceptent et s'engagent à respecter l'ensemble des conditions énoncées dans ce contrat.
+
+Clause d'engagement définitif (Irrevocable)
+Dès que Jaycob et l'ami(e) ont signé ce document, LE CONTRAT NE PEUT PLUS REVENIR EN ARRIÈRE. Il est strictly interdit de supprimer, jeter, détruire ou annuler ce contrat même si l'ami(e) regrette d'avoir signé. L'engagement est permanent et officiel dès la signature des deux partie

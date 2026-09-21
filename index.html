@@ -171,55 +171,46 @@
     <!-- Écran d'accueil -->
     <div id="screen-welcome">
         <h1>JAY 26-27</h1>
-        <button class="btn" id="btn-navigate" onclick="showScreen('screen-lang')">Naviguer</button>
-    </div>
-
-    <!-- Écran Choix de la Langue -->
-    <div id="screen-lang" class="hidden">
-        <button class="btn-back" onclick="showScreen('screen-welcome')">←</button>
-        <h2>Language / Langue</h2>
-        <button class="btn" onclick="setLanguage('fr')">Français</button>
-        <br>
-        <button class="btn" style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);" onclick="setLanguage('en')">English</button>
+        <button class="btn" onclick="showScreen('screen-nav')">Naviguer</button>
     </div>
 
     <!-- Navigation principale -->
     <div id="screen-nav" class="hidden">
-        <button class="btn-back" onclick="showScreen('screen-lang')">←</button>
-        <h2 id="txt-nav-title">Navigation</h2>
-        <button class="btn" id="txt-btn-contract" onclick="showScreen('screen-category')">Contrat</button>
+        <button class="btn-back" onclick="showScreen('screen-welcome')">←</button>
+        <h2>Navigation</h2>
+        <button class="btn" onclick="showScreen('screen-category')">Contrat</button>
         <br>
-        <button class="btn" style="background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);" id="txt-btn-autre" onclick="showScreen('screen-autre-category')">Autre</button>
+        <button class="btn" style="background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);" onclick="showScreen('screen-autre-category')">Autre</button>
         <br>
-        <button class="btn btn-admin" id="txt-btn-admin-access" onclick="showScreen('screen-admin-login')">Espace Admin</button>
+        <button class="btn btn-admin" onclick="showScreen('screen-admin-login')">Espace Admin</button>
     </div>
 
     <!-- Catégorie Contrat (Sarah) -->
     <div id="screen-category" class="hidden">
         <button class="btn-back" onclick="showScreen('screen-nav')">←</button>
-        <h2 id="txt-cat-title">Catégories</h2>
+        <h2>Catégories</h2>
         <button class="btn" onclick="showScreen('screen-sarah-options')">Sarah</button>
     </div>
 
     <!-- Catégorie Autre (Emma) -->
     <div id="screen-autre-category" class="hidden">
         <button class="btn-back" onclick="showScreen('screen-nav')">←</button>
-        <h2 id="txt-autre-title">Autre - Catégories</h2>
+        <h2>Autre - Catégories</h2>
         <button class="btn" style="background: linear-gradient(135deg, #c084fc 0%, #9333ea 100%);" onclick="showScreen('screen-emma-options')">Emma</button>
     </div>
 
     <!-- Options Sarah -->
     <div id="screen-sarah-options" class="hidden">
         <button class="btn-back" onclick="showScreen('screen-category')">←</button>
-        <h2>Sarah - <span class="txt-sub-contract">Contrats</span></h2>
-        <button class="btn" id="txt-sarah-btn" onclick="showPasswordSection('password-section')">Contrat Squishy</button>
+        <h2>Sarah - Contrats</h2>
+        <button class="btn" onclick="showPasswordSection('password-section')">Contrat Squishy</button>
 
         <div id="password-section" class="hidden" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(244, 114, 182, 0.2);">
-            <p style="color: #fbcfe8; margin-bottom: 5px;" class="txt-enter-pass">Entrez le mot de passe :</p>
+            <p style="color: #fbcfe8; margin-bottom: 5px;">Entrez le mot de passe :</p>
             <div class="input-group">
                 <input type="text" id="password-input" placeholder="••••••••" autocomplete="off" spellcheck="false">
             </div>
-            <button class="btn" style="background: linear-gradient(135deg, #d946ef 0%, #a855f7 100%);" class="txt-unlock" onclick="verifyPassword()">Déverrouiller</button>
+            <button class="btn" style="background: linear-gradient(135deg, #d946ef 0%, #a855f7 100%);" onclick="verifyPassword()">Déverrouiller</button>
             <p id="error-message" class="error-msg hidden">Mot de passe incorrect.</p>
         </div>
     </div>
@@ -228,14 +219,14 @@
     <div id="screen-emma-options" class="hidden">
         <button class="btn-back" onclick="showScreen('screen-autre-category')">←</button>
         <h2>Emma - Options</h2>
-        <button class="btn" style="background: linear-gradient(135deg, #f43f5e 0%, #be123c 100%);" id="txt-emma-btn" onclick="showPasswordSection('emma-password-section')">COMMANDE SQUISHY</button>
+        <button class="btn" style="background: linear-gradient(135deg, #f43f5e 0%, #be123c 100%);" onclick="showPasswordSection('emma-password-section')">COMMANDE SQUISHY</button>
 
         <div id="emma-password-section" class="hidden" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(244, 114, 182, 0.2);">
-            <p style="color: #fbcfe8; margin-bottom: 5px;" class="txt-enter-pass">Entrez le mot de passe :</p>
+            <p style="color: #fbcfe8; margin-bottom: 5px;">Entrez le mot de passe :</p>
             <div class="input-group">
                 <input type="text" id="emma-password-input" placeholder="••••••••" autocomplete="off" spellcheck="false">
             </div>
-            <button class="btn" style="background: linear-gradient(135deg, #d946ef 0%, #a855f7 100%);" class="txt-unlock" onclick="verifyEmmaPassword()">Déverrouiller</button>
+            <button class="btn" style="background: linear-gradient(135deg, #d946ef 0%, #a855f7 100%);" onclick="verifyEmmaPassword()">Déverrouiller</button>
             <p id="emma-error-message" class="error-msg hidden">Mot de passe incorrect.</p>
         </div>
     </div>
@@ -243,13 +234,35 @@
     <!-- Contrat Sarah affiché -->
     <div id="screen-contract" class="hidden">
         <button class="btn-back" onclick="showScreen('screen-sarah-options')">←</button>
-        <h2 id="txt-contract-heading">Contrat squishy fromage</h2>
+        <h2>Contrat squishy fromage</h2>
         
-        <div class="contract-card" id="txt-contract-body">
-            <!-- Rempli en JS selon la langue -->
+        <div class="contract-card">
+            <h2>1. Engagement d'amitié et conditions du squishy</h2>
+            <p>Le présent contrat confirme le prêt ou la remise d'un squishy entre Jaycob et son ami(e).</p>
+
+            <h2>2. Termes et obligations quotidiennes</h2>
+            <ul>
+                <li><strong>Règle d'école obligatoire :</strong> Sarah doit obligatoirement avoir le squishy dans son sac <strong>TOUS les jours d'école</strong>.</li>
+                <li><strong>Rupture d'amitié par l'ami(e) :</strong> Si l'ami(e) affirme, dit ou déclare à d'autres personnes qu'ils ne sont plus amis avec Jaycob, l'ami(e) s'engage immédiatement à :
+                    <ul>
+                        <li>Rendre le squishy en parfait état à Jaycob ; <strong>OU</strong></li>
+                        <li>Payer la valeur du squishy en argent comptant à Jaycob.</li>
+                    </ul>
+                </li>
+                <li><strong>Rupture d'amitié par Jaycob :</strong> Si Jaycob déclare qu'ils ne sont plus amis, il doit obligatoirement donner une raison valable. Cela déclenchera alors la procédure et les étapes de paiement ou de restitution du squishy.</li>
+                <li><strong>Insultes ou manques de respect :</strong> Si l'ami(e) insulte Jaycob, elle sera obligée de payer la valeur du squishy <strong>ET</strong> de redonner le squishy à Jaycob.</li>
+                <li><strong>Dommage ou bris :</strong> Si le squishy se casse, s'abîme ou se déchire, l'ami(e) doit obligatoirement informer Jaycob. Si Jaycob découvre par lui-même que le squishy est cassé, l'ami(e) aura l'obligation absolue de le payer et devra le garder.</li>
+                <li><strong>Échange, don ou transfert (Trade) :</strong> Si l'ami(e) souhaite donner, échanger ou transférer le squishy à quelqu'un d'autre, Jaycob doit obligatoirement en être informé avant. Jaycob décidera alors de la suite de la procédure.</li>
+            </ul>
+
+            <h2>3. Acceptation des termes</h2>
+            <p>En signant ci-dessous, les deux parties acceptent et s'engagent à respecter l'ensemble des conditions énoncées dans ce contrat.</p>
+
+            <h2>Clause d'engagement définitif (Irrevocable)</h2>
+            <p>Dès que Jaycob et l'ami(e) ont signé ce document, <strong>LE CONTRAT NE PEUT PLUS REVENIR EN ARRIÈRE</strong>. Il est strictement interdit de supprimer, jeter, détruire ou annuler ce contrat même si l'ami(e) regrette d'avoir signé. L'engagement est permanent et officiel dès la signature des deux parties.</p>
         </div>
 
-        <button class="btn" style="background: linear-gradient(135deg, #db2777 0%, #9333ea 100%); margin-top: 20px;" id="txt-sign-btn" onclick="signContract()">Signer</button>
+        <button class="btn" style="background: linear-gradient(135deg, #db2777 0%, #9333ea 100%); margin-top: 20px;" onclick="signContract()">Signer</button>
     </div>
 
     <!-- Écran Emma : COMMANDE SQUISHY -->
@@ -258,17 +271,17 @@
         <h2 style="color: #fb7185;">COMMANDE SQUISHY</h2>
         
         <div style="background: rgba(15, 5, 29, 0.8); border: 2px solid #f472b6; padding: 25px; border-radius: 18px; margin-top: 20px;">
-            <h3 style="color: #fbcfe8; font-size: 1.1rem; margin-top: 0;" id="txt-emma-msg">CONFIRME QUE TU AS REÇU LA COMMANDE</h3>
-            <p style="color: #cbd5e1; font-size: 0.88rem;" id="txt-emma-sub">Prends une photo de la commande avec la caméra :</p>
+            <h3 style="color: #fbcfe8; font-size: 1.1rem; margin-top: 0;">CONFIRME QUE TU AS REÇU LA COMMANDE</h3>
+            <p style="color: #cbd5e1; font-size: 0.88rem;">Prends une photo de la commande avec la caméra :</p>
             
             <input type="file" id="emma-camera-input" accept="image/*" capture="user" style="display: none;" onchange="handleEmmaPhoto(this)">
-            <button class="btn" style="background: #3b82f6;" id="txt-take-photo-btn" onclick="document.getElementById('emma-camera-input').click()">📸 Prendre la photo avec la caméra</button>
+            <button class="btn" style="background: #3b82f6;" onclick="document.getElementById('emma-camera-input').click()">📸 Prendre la photo avec la caméra</button>
 
             <div id="emma-preview-container" class="hidden">
                 <img id="emma-preview" class="preview-img" src="" alt="Aperçu photo">
             </div>
 
-            <button class="btn" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); margin-top: 25px;" id="txt-confirm-btn" onclick="confirmEmmaCommande()">CONFIRMER ET ENVOYER</button>
+            <button class="btn" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); margin-top: 25px;" onclick="confirmEmmaCommande()">CONFIRMER ET ENVOYER</button>
             <p id="emma-photo-error" class="error-msg hidden">Veuillez prendre une photo avec la caméra avant de confirmer.</p>
         </div>
     </div>
@@ -293,117 +306,139 @@
         <div class="admin-card">
             <h3 style="color: #f472b6; margin-top: 0;">1. Sarah - Contrat Squishy</h3>
             <p><strong>Code d'accès :</strong> <code>SARAHCONTRATSQUISHY26</code></p>
-            <p><strong>Condition spéciale :</strong> Doit impérativement avoir le squishy dans son sac tous les jours d'école.</p>
+            <p><strong>Obligation :</strong> Squishy obligatoire dans le sac tous les jours d'école.</p>
             <button class="btn" style="padding: 10px; font-size: 0.9rem;" onclick="showScreen('screen-contract')">Voir le contrat</button>
         </div>
 
         <div class="admin-card">
             <h3 style="color: #c084fc; margin-top: 0;">2. Emma - Commande Squishy</h3>
             <p><strong>Code d'accès :</strong> <code>commandesquishyemma72728</code></p>
-            <p><strong>Règle :</strong> Prise de photo obligatoire avec la caméra lors de la confirmation.</p>
+            <p><strong>Obligation :</strong> Photo avec caméra uniquement.</p>
             <button class="btn" style="padding: 10px; font-size: 0.9rem; background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);" onclick="showScreen('screen-emma-commande')">Voir le module</button>
         </div>
     </div>
 </div>
 
 <script>
-    let currentLang = 'fr';
     let emmaPhotoTaken = false;
 
-    const translations = {
-        fr: {
-            navBtn: "Naviguer",
-            navTitle: "Navigation",
-            contractBtn: "Contrat",
-            autreBtn: "Autre",
-            adminBtn: "Espace Admin",
-            catTitle: "Catégories",
-            autreTitle: "Autre - Catégories",
-            sarahBtn: "Contrat Squishy",
-            emmaBtn: "COMMANDE SQUISHY",
-            enterPass: "Entrez le mot de passe :",
-            unlock: "Déverrouiller",
-            contractHeading: "Contrat squishy fromage",
-            contractBody: `
-                <h2>1. Engagement d'amitié et conditions du squishy</h2>
-                <p>Le présent contrat confirme le prêt ou la remise d'un squishy entre Jaycob et son ami(e).</p>
+    function showScreen(screenId) {
+        const screens = [
+            'screen-welcome', 'screen-nav', 'screen-category', 'screen-autre-category',
+            'screen-sarah-options', 'screen-emma-options', 'screen-contract', 'screen-emma-commande',
+            'screen-admin-login', 'screen-admin-dashboard'
+        ];
+        screens.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.classList.add('hidden');
+        });
+        const target = document.getElementById(screenId);
+        if (target) target.classList.remove('hidden');
+    }
 
-                <h2>2. Termes et obligations quotidiennes</h2>
-                <ul>
-                    <li><strong>Règle d'école obligatoire :</strong> Sarah doit obligatoirement avoir le squishy dans son sac <strong>TOUS les jours d'école</strong>.</li>
-                    <li><strong>Rupture d'amitié par l'ami(e) :</strong> Si l'ami(e) affirme, dit ou déclare à d'autres personnes qu'ils ne sont plus amis avec Jaycob, l'ami(e) s'engage immédiatement à :
-                        <ul>
-                            <li>Rendre le squishy en parfait état à Jaycob ; <strong>OU</strong></li>
-                            <li>Payer la valeur du squishy en argent comptant à Jaycob.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Rupture d'amitié par Jaycob :</strong> Si Jaycob déclare qu'ils ne sont plus amis, il doit obligatoirement donner une raison valable. Cela déclenchera alors la procédure de paiement ou de restitution du squishy.</li>
-                    <li><strong>Insultes ou manques de respect :</strong> Si l'ami(e) insulte Jaycob, elle sera obligée de payer la valeur du squishy <strong>ET</strong> de redonner le squishy à Jaycob.</li>
-                    <li><strong>Dommage ou bris :</strong> Si le squishy se casse, s'abîme ou se déchire, l'ami(e) doit obligatoirement informer Jaycob. Si Jaycob découvre par lui-même que le squishy est cassé, l'ami(e) aura l'obligation absolue de le payer et devra le garder.</li>
-                    <li><strong>Échange, don ou transfert (Trade) :</strong> Si l'ami(e) souhaite donner, échanger ou transférer le squishy à quelqu'un d'autre, Jaycob doit obligatoirement en être informé avant. Jaycob décidera alors de la suite de la procédure.</li>
-                </ul>
+    function showPasswordSection(sectionId) {
+        document.getElementById(sectionId).classList.remove('hidden');
+    }
 
-                <h2>3. Acceptation des termes</h2>
-                <p>En signant ci-dessous, les deux parties acceptent et s'engagent à respecter l'ensemble des conditions énoncées dans ce contrat.</p>
-
-                <h2>Clause d'engagement définitif (Irrevocable)</h2>
-                <p>Dès que Jaycob et l'ami(e) ont signé ce document, <strong>LE CONTRAT NE PEUT PLUS REVENIR EN ARRIÈRE</strong>. Il est strictement interdit de supprimer, jeter, détruire ou annuler ce contrat même si l'ami(e) regrette d'avoir signé. L'engagement est permanent et officiel dès la signature des deux parties.</p>
-            `,
-            signBtn: "Signer",
-            emmaMsg: "CONFIRME QUE TU AS REÇU LA COMMANDE",
-            emmaSub: "Prends une photo de la commande avec la caméra :",
-            takePhoto: "📸 Prendre la photo avec la caméra",
-            confirmBtn: "CONFIRMER ET ENVOYER"
-        },
-        en: {
-            navBtn: "Navigate",
-            navTitle: "Navigation",
-            contractBtn: "Contract",
-            autreBtn: "Other",
-            adminBtn: "Admin Space",
-            catTitle: "Categories",
-            autreTitle: "Other - Categories",
-            sarahBtn: "Squishy Contract",
-            emmaBtn: "SQUISHY ORDER",
-            enterPass: "Enter password:",
-            unlock: "Unlock",
-            contractHeading: "Cheese Squishy Contract",
-            contractBody: `
-                <h2>1. Friendship Agreement and Squishy Conditions</h2>
-                <p>This contract confirms the loan or handover of a squishy between Jaycob and his friend.</p>
-
-                <h2>2. Terms and Daily Obligations</h2>
-                <ul>
-                    <li><strong>Mandatory School Rule:</strong> Sarah must imperatively have the squishy in her bag <strong>EVERY school day</strong>.</li>
-                    <li><strong>Breakup of friendship by the friend:</strong> If the friend states or tells others they are no longer friends with Jaycob, the friend immediately agrees to:
-                        <ul>
-                            <li>Return the squishy in perfect condition to Jaycob; <strong>OR</strong></li>
-                            <li>Pay the full value of the squishy in cash to Jaycob.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Breakup of friendship by Jaycob:</strong> If Jaycob declares they are no longer friends, he must provide a valid reason. This will trigger the payment or return procedure.</li>
-                    <li><strong>Insults or Disrespect:</strong> If the friend insults Jaycob, she must pay the value of the squishy <strong>AND</strong> return the squishy to Jaycob.</li>
-                    <li><strong>Damage or Breakage:</strong> If the squishy breaks or tears, the friend must inform Jaycob. If Jaycob discovers it himself, the friend is obligated to pay for it and keep it.</li>
-                    <li><strong>Trade / Transfer:</strong> If the friend wants to give or trade the squishy, Jaycob must be informed beforehand. Jaycob will decide the next steps.</li>
-                </ul>
-
-                <h2>3. Acceptance of Terms</h2>
-                <p>By signing below, both parties accept and agree to all terms stated in this contract.</p>
-
-                <h2>Irrevocable Commitment Clause</h2>
-                <p>Once signed, <strong>THIS CONTRACT CANNOT BE REVERSED</strong>. It is strictly forbidden to delete, throw away, or cancel this contract even if the friend regrets signing. The commitment is permanent and official upon signature.</p>
-            `,
-            signBtn: "Sign",
-            emmaMsg: "CONFIRM THAT YOU RECEIVED THE ORDER",
-            emmaSub: "Take a picture of the order with the camera:",
-            takePhoto: "📸 Take photo with camera",
-            confirmBtn: "CONFIRM AND SEND"
+    function verifyPassword() {
+        const input = document.getElementById('password-input').value.replace(/\s+/g, '').toUpperCase();
+        if (input === 'SARAHCONTRATSQUISHY26') {
+            document.getElementById('error-message').classList.add('hidden');
+            showScreen('screen-contract');
+        } else {
+            document.getElementById('error-message').classList.remove('hidden');
         }
-    };
+    }
 
-    function setLanguage(lang) {
-        currentLang = lang;
-        const t = translations[lang];
+    function verifyEmmaPassword() {
+        const input = document.getElementById('emma-password-input').value.replace(/\s+/g, '').toLowerCase();
+        if (input === 'commandesquishyemma72728') {
+            document.getElementById('emma-error-message').classList.add('hidden');
+            showScreen('screen-emma-commande');
+        } else {
+            document.getElementById('emma-error-message').classList.remove('hidden');
+        }
+    }
 
-        document.getElementById('btn-navigate').textContent = t.navBtn;
-        document.getEle
+    function verifyAdminCode() {
+        const input = document.getElementById('admin-code-input').value.trim();
+        if (input === 'admindemo') {
+            document.getElementById('admin-code-error').classList.add('hidden');
+            showScreen('screen-admin-dashboard');
+        } else {
+            document.getElementById('admin-code-error').classList.remove('hidden');
+        }
+    }
+
+    function handleEmmaPhoto(input) {
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('emma-preview').src = e.target.result;
+                document.getElementById('emma-preview-container').classList.remove('hidden');
+                emmaPhotoTaken = true;
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function confirmEmmaCommande() {
+        if (!emmaPhotoTaken) {
+            document.getElementById('emma-photo-error').classList.remove('hidden');
+            return;
+        }
+
+        document.getElementById('emma-photo-error').classList.add('hidden');
+
+        const recipient = "jaycobservant20@outlook.com";
+        const subject = encodeURIComponent("Commande emma");
+        
+        const bodyText = 
+`CONFIRMATION DE COMMANDE SQUISHY - EMMA
+
+Emma confirme avoir bien reçu sa commande de squishy.
+Photo prise avec la caméra lors de la confirmation.
+
+--------------------------------------------------
+Statut : Réception confirmée avec photo.`;
+
+        const body = encodeURIComponent(bodyText);
+        window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+    }
+
+    function signContract() {
+        const recipient = "jaycobservant20@outlook.com";
+        const subject = encodeURIComponent("CONTRAT SQUISHY");
+        
+        const bodyText = 
+`CONTRAT SQUISHY FROMAGE
+
+1. Engagement d'amitié et conditions du squishy
+Le présent contrat confirme le prêt ou la remise d'un squishy entre Jaycob et son ami(e).
+
+2. Termes
+- RÈGLE D'ÉCOLE : Sarah doit obligatoirement avoir le squishy dans son sac TOUS les jours d'école.
+- Rupture d'amitié par l'ami(e) : Doit rendre le squishy en parfait état OU le payer.
+- Rupture d'amitié par Jaycob : Doit donner une raison valable.
+- Insultes ou manques de respect : Obligation de le payer ET de le redonner.
+- Dommage ou bris : Obligation d'informer. Si découvert par Jaycob, paiement obligatoire.
+- Échange, don ou transfert (Trade) : Jaycob doit obligatoirement être informé avant.
+
+3. Acceptation des termes
+En signant ci-dessous, les deux parties acceptent l'ensemble des conditions.
+
+Clause d'engagement définitif (Irrevocable)
+Dès que Jaycob et l'ami(e) ont signé ce document, LE CONTRAT NE PEUT PLUS REVENIR EN ARRIÈRE.
+
+--------------------------------------------------
+signature: 
+[Écrivez votre nom ici]`;
+
+        const body = encodeURIComponent(bodyText);
+        window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+    }
+</script>
+
+</body>
+    </html>
+                

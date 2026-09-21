@@ -174,7 +174,7 @@
         <button class="btn" onclick="showScreen('screen-nav')">Naviguer</button>
     </div>
 
-    <!-- Navigation principale -->
+    <!-- Navigation -->
     <div id="screen-nav" class="hidden">
         <button class="btn-back" onclick="showScreen('screen-welcome')">←</button>
         <h2>Navigation</h2>
@@ -208,7 +208,7 @@
         <div id="password-section" class="hidden" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(244, 114, 182, 0.2);">
             <p style="color: #fbcfe8; margin-bottom: 5px;">Entrez le mot de passe :</p>
             <div class="input-group">
-                <input type="text" id="password-input" placeholder="••••••••" autocomplete="off" spellcheck="false">
+                <input type="text" id="password-input" placeholder="Entrez le code" autocomplete="off" spellcheck="false">
             </div>
             <button class="btn" style="background: linear-gradient(135deg, #d946ef 0%, #a855f7 100%);" onclick="verifyPassword()">Déverrouiller</button>
             <p id="error-message" class="error-msg hidden">Mot de passe incorrect.</p>
@@ -224,14 +224,14 @@
         <div id="emma-password-section" class="hidden" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(244, 114, 182, 0.2);">
             <p style="color: #fbcfe8; margin-bottom: 5px;">Entrez le mot de passe :</p>
             <div class="input-group">
-                <input type="text" id="emma-password-input" placeholder="••••••••" autocomplete="off" spellcheck="false">
+                <input type="text" id="emma-password-input" placeholder="Entrez le code" autocomplete="off" spellcheck="false">
             </div>
             <button class="btn" style="background: linear-gradient(135deg, #d946ef 0%, #a855f7 100%);" onclick="verifyEmmaPassword()">Déverrouiller</button>
             <p id="emma-error-message" class="error-msg hidden">Mot de passe incorrect.</p>
         </div>
     </div>
 
-    <!-- Contrat Sarah affiché -->
+    <!-- Contrat Sarah -->
     <div id="screen-contract" class="hidden">
         <button class="btn-back" onclick="showScreen('screen-sarah-options')">←</button>
         <h2>Contrat squishy fromage</h2>
@@ -240,7 +240,7 @@
             <h2>1. Engagement d'amitié et conditions du squishy</h2>
             <p>Le présent contrat confirme le prêt ou la remise d'un squishy entre Jaycob et son ami(e).</p>
 
-            <h2>2. Termes et obligations quotidiennes</h2>
+            <h2>2. Termes</h2>
             <ul>
                 <li><strong>Règle d'école obligatoire :</strong> Sarah doit obligatoirement avoir le squishy dans son sac <strong>TOUS les jours d'école</strong>.</li>
                 <li><strong>Rupture d'amitié par l'ami(e) :</strong> Si l'ami(e) affirme, dit ou déclare à d'autres personnes qu'ils ne sont plus amis avec Jaycob, l'ami(e) s'engage immédiatement à :
@@ -252,14 +252,14 @@
                 <li><strong>Rupture d'amitié par Jaycob :</strong> Si Jaycob déclare qu'ils ne sont plus amis, il doit obligatoirement donner une raison valable. Cela déclenchera alors la procédure et les étapes de paiement ou de restitution du squishy.</li>
                 <li><strong>Insultes ou manques de respect :</strong> Si l'ami(e) insulte Jaycob, elle sera obligée de payer la valeur du squishy <strong>ET</strong> de redonner le squishy à Jaycob.</li>
                 <li><strong>Dommage ou bris :</strong> Si le squishy se casse, s'abîme ou se déchire, l'ami(e) doit obligatoirement informer Jaycob. Si Jaycob découvre par lui-même que le squishy est cassé, l'ami(e) aura l'obligation absolue de le payer et devra le garder.</li>
-                <li><strong>Échange, don ou transfert (Trade) :</strong> Si l'ami(e) souhaite donner, échanger ou transférer le squishy à quelqu'un d'autre, Jaycob doit obligatoirement en être informé avant. Jaycob décidera alors de la suite de la procédure.</li>
+                <li><strong>Échange, don ou transfert (Trade) :</strong> Si l'ami(e) souhaite donner, échanger ou transférer le squishy à quelqu'un d'autre, Jaycob doit obligatoirement en être informé avant. Jaycob décidera alors de la suite de la procédure (ce qu'il faut faire ou ne rien faire).</li>
             </ul>
 
             <h2>3. Acceptation des termes</h2>
             <p>En signant ci-dessous, les deux parties acceptent et s'engagent à respecter l'ensemble des conditions énoncées dans ce contrat.</p>
 
             <h2>Clause d'engagement définitif (Irrevocable)</h2>
-            <p>Dès que Jaycob et l'ami(e) ont signé ce document, <strong>LE CONTRAT NE PEUT PLUS REVENIR EN ARRIÈRE</strong>. Il est strictement interdit de supprimer, jeter, détruire ou annuler ce contrat même si l'ami(e) regrette d'avoir signé. L'engagement est permanent et officiel dès la signature des deux parties.</p>
+            <p>Dès que Jaycob et l'ami(e) ont signé ce document, <strong>LE CONTRAT NE PEUT PLUS REVENIR EN ARRIÈRE</strong>. Il est strictly interdit de supprimer, jeter, détruire ou annuler ce contrat même si l'ami(e) regrette d'avoir signé. L'engagement est permanent et officiel dès la signature des deux parties.</p>
         </div>
 
         <button class="btn" style="background: linear-gradient(135deg, #db2777 0%, #9333ea 100%); margin-top: 20px;" onclick="signContract()">Signer</button>
@@ -418,27 +418,16 @@ Le présent contrat confirme le prêt ou la remise d'un squishy entre Jaycob et 
 
 2. Termes
 - RÈGLE D'ÉCOLE : Sarah doit obligatoirement avoir le squishy dans son sac TOUS les jours d'école.
-- Rupture d'amitié par l'ami(e) : Doit rendre le squishy en parfait état OU le payer.
-- Rupture d'amitié par Jaycob : Doit donner une raison valable.
-- Insultes ou manques de respect : Obligation de le payer ET de le redonner.
-- Dommage ou bris : Obligation d'informer. Si découvert par Jaycob, paiement obligatoire.
-- Échange, don ou transfert (Trade) : Jaycob doit obligatoirement être informé avant.
+- Rupture d'amitié par l'ami(e) : Si l'ami(e) affirme, dit ou déclare à d'autres personnes qu'ils ne sont plus amis avec Jaycob, l'ami(e) s'engage immédiatement à :
+  * Rendre le squishy en parfait état à Jaycob ; OU
+  * Payer la valeur du squishy en argent comptant à Jaycob.
+- Rupture d'amitié par Jaycob : Si Jaycob déclare qu'ils ne sont plus amis, il doit obligatoirement donner une raison valable. Cela déclenchera alors la procédure et les étapes de paiement ou de restitution du squishy.
+- Insultes ou manques de respect : Si l'ami(e) insulte Jaycob, elle sera obligée de payer la valeur du squishy ET de redonner le squishy à Jaycob.
+- Dommage ou bris : Si le squishy se casse, s'abîme ou se déchire, l'ami(e) doit obligatoirement informer Jaycob. Si Jaycob découvre par lui-même que le squishy est cassé, l'ami(e) aura l'obligation absolue de le payer et devra le garder.
+- Échange, don ou transfert (Trade) : Si l'ami(e) souhaite donner, échanger ou transférer le squishy à quelqu'un d'autre, Jaycob doit obligatoirement en être informé avant. Jaycob décidera alors de la suite de la procédure (ce qu'il faut faire ou ne rien faire).
 
 3. Acceptation des termes
-En signant ci-dessous, les deux parties acceptent l'ensemble des conditions.
+En signant ci-dessous, les deux parties acceptent et s'engagent à respecter l'ensemble des conditions énoncées dans ce contrat.
 
 Clause d'engagement définitif (Irrevocable)
-Dès que Jaycob et l'ami(e) ont signé ce document, LE CONTRAT NE PEUT PLUS REVENIR EN ARRIÈRE.
-
---------------------------------------------------
-signature: 
-[Écrivez votre nom ici]`;
-
-        const body = encodeURIComponent(bodyText);
-        window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
-    }
-</script>
-
-</body>
-    </html>
-                
+Dès que Jaycob et l'ami(e) ont signé ce documen

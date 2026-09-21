@@ -328,12 +328,18 @@
             'screen-sarah-options', 'screen-emma-options', 'screen-contract', 'screen-emma-commande',
             'screen-admin-login', 'screen-admin-dashboard'
         ];
-        screens.forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.classList.add('hidden');
-        });
+        
+        for (let i = 0; i < screens.length; i++) {
+            const el = document.getElementById(screens[i]);
+            if (el) {
+                el.classList.add('hidden');
+            }
+        }
+        
         const target = document.getElementById(screenId);
-        if (target) target.classList.remove('hidden');
+        if (target) {
+            target.classList.remove('hidden');
+        }
     }
 
     function showPasswordSection(sectionId) {
@@ -427,7 +433,4 @@ Le présent contrat confirme le prêt ou la remise d'un squishy entre Jaycob et 
 - Échange, don ou transfert (Trade) : Si l'ami(e) souhaite donner, échanger ou transférer le squishy à quelqu'un d'autre, Jaycob doit obligatoirement en être informé avant. Jaycob décidera alors de la suite de la procédure (ce qu'il faut faire ou ne rien faire).
 
 3. Acceptation des termes
-En signant ci-dessous, les deux parties acceptent et s'engagent à respecter l'ensemble des conditions énoncées dans ce contrat.
-
-Clause d'engagement définitif (Irrevocable)
-Dès que Jaycob et l'ami(e) ont signé ce docu
+En signant ci-dessous, les deux parties acceptent et s'engagent à respecter l'ensemble des conditions énoncées dans ce
